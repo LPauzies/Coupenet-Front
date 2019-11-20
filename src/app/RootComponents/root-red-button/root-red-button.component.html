@@ -1,0 +1,32 @@
+<ngb-alert class="success" *ngIf="successMessage" type="success" (close)="successMessage = null">
+  <i class="fas fa-check"></i> {{ successMessage }}
+</ngb-alert>
+
+<div class="timeBan">
+  <div class="startBan">
+    Début du Ban à :
+    <ngb-timepicker [(ngModel)]="startTime" [spinners]="spinners" ></ngb-timepicker>
+  </div>
+  <div class="endBan">
+    Fin du Ban à :
+    <ngb-timepicker [(ngModel)]="endTime" [spinners]="spinners"></ngb-timepicker>
+  </div>
+</div>
+
+
+<div>
+  <div class="container mb-5 mt-5">
+    <div class="">
+      <button id="banbutton" type="button" title="{{ msgBanAllButton }}" class="button-ban" (click)="banAllForThisGroup()">
+        &nbsp;Bannir tous&nbsp;&nbsp;
+      </button>
+    </div>
+  </div>
+  <div class="container">
+    <div class="">
+      <button id="unbanbutton" type="button" title="{{ msgUnbanAllButton }}" class="button-unban" (click)="unbanAllForThisGroup()">
+        Débannir tous
+      </button>
+    </div>
+  </div>
+</div>

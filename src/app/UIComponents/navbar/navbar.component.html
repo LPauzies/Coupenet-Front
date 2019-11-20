@@ -1,0 +1,36 @@
+<div *ngIf="currentUser != null && currentUser.status == 'viewer'" class="bg-danger text-white text-center">
+  <small>Vous êtes viewer, vous ne pouvez pas interagir avec l'API de notre application. Si vous souhaitez utiliser cette application, demandez les droits adéquats.</small>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="/"><img class="logo" [src]="version.logoFullWhite"/></a>
+    </li>
+  </ul>
+
+  <div *ngIf="currentUser" class="container" id="loggedNavbar">
+    <div class="col-3">
+    </div>
+    <div *ngIf="currentUser.status == 'root'" class="col-8">
+      <a href="/root" role="button" class="btn btn-outline-light">Planning</a>
+      &nbsp;
+      <a href="/link" role="button" class="btn btn-outline-light">Liaison de groupes</a>
+      &nbsp;
+      <a href="/rights" role="button" class="btn btn-outline-light">Gérer les droits</a>
+      &nbsp;
+      <a href="/ban" role="button" class="btn btn-outline-light">Groupe bannis </a>
+    </div>
+    <div class="col-3">
+    </div>
+  </div>
+  <div *ngIf="currentUser" class="float-right">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item mt-2">
+        <a class="nav-link"><h4><span class="badge badge-info">{{ currentUser.username }} - {{ currentUser.status.toUpperCase() }}</span></h4></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link clickable" (click)="logout()"><img src="assets/icons/disconnect.png"/></a>
+      </li>
+    </ul>
+  </div>
+</nav>

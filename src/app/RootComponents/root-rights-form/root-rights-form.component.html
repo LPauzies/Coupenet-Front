@@ -1,0 +1,24 @@
+<div class="form-group row">
+  <div class="col-5">
+    <select class="form-control" #adminChoice>
+      <option value="" disabled selected>Choix d'un administratif</option>
+      <option *ngFor="let admin of adminList" value={{admin.username}}>{{admin.username}} : {{admin.status}}</option>
+    </select>
+  </div>
+  <div class="col-5">
+    <select class="form-control" #adminStatusChoice>
+      <option value="0">Viewer</option>
+      <option value="1">Teacher</option>
+      <option value="2">Root</option>
+    </select>
+  </div>
+  <div class="col-2">
+    <button type="button" class="btn btn-outline-primary float-right" (click)="changeRightsForThisAdmin(adminChoice.value,adminStatusChoice.value)">Appliquer</button>
+  </div>
+</div>
+
+<div *ngIf="hasError" class="row justify-content-center mt-3">
+  <div class="col-6 text-center text-danger">
+    <i class="fas fa-exclamation-triangle"></i>&nbsp;Vous ne pouvez pas changer les droits d'un administratif vide !
+  </div>
+</div>

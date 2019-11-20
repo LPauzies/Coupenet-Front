@@ -1,0 +1,12 @@
+<div class="form-group row">
+  <div class="col-6">
+    <label for="groupSchedule">Groupe bannis:</label>
+    <select class="form-control" id="groupSchedule" [(ngModel)]='selectedGroup'>
+      <option value="" disabled selected>--</option>
+      <option [ngValue]="group" *ngFor="let group of groupList" [ngValue]="group" >{{group.label}}</option>
+    </select>
+  </div>
+  <div class="col-6" *ngIf="selectedGroup">
+    <app-root-bans-unban [group]="selectedGroup"></app-root-bans-unban>
+  </div>
+</div>

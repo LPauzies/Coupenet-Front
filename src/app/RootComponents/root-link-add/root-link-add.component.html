@@ -1,0 +1,14 @@
+<div class="row mb-3">
+  <div class="col-6">
+    <input type="text" class="form-control" placeholder="Créer un groupe global" #createGlobalGroup>
+  </div>
+  <div class="col-6">
+    <button type="button" class="btn btn-outline-primary" (click)="addGlobalGroup(createGlobalGroup.value)">Ajouter un groupe global</button>
+  </div>
+</div>
+
+<div *ngIf="hasError" class="row justify-content-center mt-3">
+  <div class="col-6 text-center text-danger">
+    <i class="fas fa-exclamation-triangle"></i>&nbsp;Vous ne pouvez pas créer de groupes globaux vides
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="unban">
+  <button id="unbanbutton" type="button"  class="button-unban" (click)="unbanAllForThisGroup()">
+    Débannir
+  </button>
+</div>
+
+
+<ngb-alert class="success" *ngIf="successMessage" type="success" (close)="successMessage = null">
+  <i class="fas fa-check"></i> {{ successMessage }}
+</ngb-alert>

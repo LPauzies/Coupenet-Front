@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-6">
+    <label for="globalGroup">Groupe global :</label>
+    <select class="form-control" #globalGroup>
+      <option value="" disabled selected>--</option>
+      <option *ngFor="let globalGroup of globalGroupList" value={{globalGroup.id}}>{{globalGroup.label}}</option>
+    </select>
+  </div>
+  <div class="col-6">
+    <label for="group">Groupe :</label>
+    <select class="form-control" #group>
+      <option value="" disabled selected>--</option>
+      <option *ngFor="let group of groupList" value={{group.id}}>{{group.label}}</option>
+    </select>
+  </div>
+</div>
+
+<div class="row justify-content-center mt-3">
+  <div class="col-6 text-center">
+    <button type="button" class="btn btn-outline-danger" (click)="deleteGlobalGroup(globalGroup.value)">Supprimer le group global sélectionné</button>
+  </div>
+  <div class="col-6 text-center">
+    <button type="button" class="btn btn-outline-primary btn-lg" (click)="linkGroups(globalGroup.value,group.value)">Lier ces groupes</button>
+  </div>
+</div>
+
+<div *ngIf="hasError" class="row justify-content-center mt-3">
+  <div class="col-6 text-center text-danger">
+    <i class="fas fa-exclamation-triangle"></i>&nbsp;Vous ne pouvez pas faire de liaisons avec des groupes vides !
+  </div>
+</div>
+
+<div *ngIf="hasErrorDelete" class="row justify-content-center mt-3">
+  <div class="col-6 text-center text-danger">
+    <i class="fas fa-exclamation-triangle"></i>&nbsp;Vous ne pouvez pas supprimer un groupe global vide !
+  </div>
+</div>

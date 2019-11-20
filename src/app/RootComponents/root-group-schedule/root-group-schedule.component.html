@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="content col-6">
+      <full-calendar
+        *ngIf="group"
+        defaultView="timeGrid"
+        schedulerLicenseKey="'GPL-My-Project-Is-Open-Source'"
+        [plugins]="calendarPlugins"
+        [locales]="locales"
+        [minTime]="'08:00:00'"
+        [maxTime]="'20:00:00'"
+        [weekends]="false"
+        [height]="600"
+        [allDaySlot]="false"
+        [header]="{
+          left: 'title',
+          center: '',
+          right: ''
+        }"
+        [titleFormat]="{
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        }"
+        [nowIndicator]="true"
+        [eventTimeFormat]="{
+          hour: 'numeric',
+          minute: '2-digit',
+          meridiem: false
+        }"
+        [events]="eventsForThisGroup"
+        (eventClick)="triggerClickEvent($event)"
+        >
+      </full-calendar>
+    </div>
+    <div class="content col-6">
+      <template #rootgroupdescriptioncomponent>
+      </template>
+    </div>
+  </div>
+</div>

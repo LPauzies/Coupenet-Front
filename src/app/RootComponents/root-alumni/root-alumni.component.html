@@ -1,0 +1,17 @@
+<li *ngIf="(alumni.ban && filterBanned) || (!alumni.ban && filterUnbanned) || (!filterBanned && !filterUnbanned)" class="list-group-item">
+  <div class="row align-items-center">
+    <div class="col-4">
+      {{ alumni.first_name }} {{ alumni.last_name.toUpperCase()}}
+    </div>
+    <div class="col-2">
+      <span class="badge badge-dark badge-alumni">{{ alumni.login }}</span>
+    </div>
+    <div class="col-3">
+      Statut : <span class="badge badge-info badge-alumni">{{ alumni.renderIsBannedText() }}</span>
+    </div>
+    <div class="col-3">
+      <button *ngIf="!alumni.ban" type="button" class="btn btn-danger" (click)="ban()">&nbsp;&nbsp;Bannir&nbsp;&nbsp;</button>
+      <button *ngIf="alumni.ban" type="button" class="btn btn-success" (click)="unban()">Débannir</button>
+    </div>
+  </div>
+</li>

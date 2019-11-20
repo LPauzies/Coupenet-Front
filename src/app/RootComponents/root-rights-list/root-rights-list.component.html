@@ -1,0 +1,16 @@
+<div id="adminTable" class="row mt-3 overflow-auto">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Login</th>
+        <th scope="col">Droits</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let admin of adminList">
+        <td>{{ admin.username }}</td>
+        <td><span class="badge badge-info">{{ admin.status.toUpperCase() }}</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

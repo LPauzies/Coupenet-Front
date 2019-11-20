@@ -1,0 +1,22 @@
+<div class="card border-dark card-margin">
+  <div class="card-header">
+    <span class="float-left">
+      {{ event.start.toLocaleString('fr-FR', {timeZone:'GMT'}).split(" ").shift() }}
+    </span>
+      <div [ngClass]="{'circleNoBan': statusBan==0, 'circleAllBanned': statusBan==1, 'circleSomeBanned': statusBan==2}" id="status"></div>
+    <span class="float-right">
+      {{ event.start.toLocaleString('fr-FR', {timeZone:'GMT'}).split(" ").pop().slice(0,-3) }} - {{ event.end.toLocaleString('fr-FR', {timeZone:'GMT'}).split(" ").pop().slice(0,-3) }}
+    </span>
+  </div>
+  <div class="card-body text-dark text-center">
+    <h5 class="card-title">{{ event.title }}</h5>
+    <p>Groupe : {{ groupLabel }}</p>
+  </div>
+  <div class="card-footer text-dark">
+    <div class="text-center">
+      <a href="/root#" role="button" aria-pressed="true" (click)="open()">Voir tous les élèves de ce cours</a>
+    </div>
+  </div>
+</div>
+
+<app-root-red-button [startDate]="event.start" [endDate]="event.end" [idGroup]="idGroup"></app-root-red-button>

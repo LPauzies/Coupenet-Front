@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+    <img class="logo-form" [src]="version.logoFull"/>
+  </div>
+  <div class="row justify-content-center align-items-center">
+    <div class="col-8">
+      <div class="container shadow p-3 mb-5 bg-light rounded">
+        <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+          <div class="form-group">
+            <label for="usernameInput">Nom d'utilisateur Arel</label>
+            <input type="text" class="form-control" formControlName="usernameInput" required placeholder="Nom d'utilisateur Arel">
+          </div>
+          <div class="form-group">
+            <label for="passwordInput">Mot de passe Arel</label>
+            <input type="password" class="form-control" formControlName="passwordInput" required placeholder="Mot de passe Arel">
+          </div>
+          <div *ngIf="hasError" class="row justify-content-center pb-3">
+            <small class="form-text text-danger">Authentification échouée, veuillez réessayer.</small>
+          </div>
+          <div *ngIf="hasExpired" class="row justify-content-center pb-3">
+            <small class="form-text text-danger">Session expirée, veuillez vous reconnecter.</small>
+          </div>
+          <div class="form-group row justify-content-center">
+            <a href="/login#" role="button" aria-pressed="true" (click)="open()">Mot de passe oublié ?</a>
+          </div>
+          <div class="form group row justify-content-center">
+            <button type="submit" class="btn btn-outline-primary" [disabled]="!loginForm.valid">Se connecter</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

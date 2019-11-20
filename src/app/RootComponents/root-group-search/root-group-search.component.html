@@ -1,0 +1,19 @@
+<div class="form-group row">
+  <div class="col-6">
+    <label for="groupSchedule">Groupe :</label>
+    <select class="form-control" id="groupSchedule" [(ngModel)]='selectedGroup' (change)="createDynamicallyScheduleForThisGroup(selectedGroup);unselectGlobalGroup()">
+      <option value="" disabled selected>--</option>
+      <option [ngValue]="group" *ngFor="let group of groupList" [ngValue]="group" >{{group.label}}</option>
+    </select>
+  </div>
+  <div class="col-6">
+    <label for="groupSchedule">Groupe global :</label>
+    <select class="form-control" id="groupGlobalSchedule" [(ngModel)]='selectedGlobalGroup' (change)="createDynamicallyScheduleForThisGlobalGroup(selectedGlobalGroup);unselectGroup()">
+      <option value="" disabled selected>--</option>
+      <option *ngFor="let globalgroup of globalGroupList" [ngValue]="globalgroup" >{{globalgroup.label}}</option>
+    </select>
+  </div>
+</div>
+
+<template #rootgroupschedulecomponent>
+</template>

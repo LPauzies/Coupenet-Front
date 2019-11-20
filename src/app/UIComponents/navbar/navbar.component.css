@@ -1,0 +1,15 @@
+nav {
+  min-height: 9vh !important;
+}
+
+.logo {
+  max-height: 6vh !important;
+}
+
+.background {
+  background-color: #343a40 !important;
+}
+
+.clickable {
+  cursor: pointer;
+}

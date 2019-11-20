@@ -1,0 +1,22 @@
+<div id="groupLinkTable" class="row mt-3 overflow-auto">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Groupe global</th>
+        <th scope="col">Groupe</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let groupLink of groupLinkedList" attr.id="{{groupLink.idGlobalGroup}};{{groupLink.idGroup}}">
+        <td>{{ groupLink.globalGroup }}</td>
+        <td>{{ groupLink.group }}</td>
+        <td>
+          <button type="button" class="btn btn-outline-danger float-right" (click)="deleteGroupLink(groupLink)">
+            <i class="far fa-trash-alt"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
